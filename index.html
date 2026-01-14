@@ -71,8 +71,8 @@ body {
     position: absolute;
     left: 6%;
     width: 88%;
-    bottom: -130%;
-    height: 190%;
+    bottom: -140%;
+    height: 200%;
     background: #fff;
     border-radius: 12px;
     padding: 18px;
@@ -86,19 +86,13 @@ body {
     font-size: 1.25rem;
     font-weight: 700;
     color: #ff4f70;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .subtitle {
     font-size: 0.9rem;
     color: #999;
     margin-bottom: 12px;
-}
-
-.letter h2 {
-    margin: 6px 0 12px;
-    color: #ff4f70;
-    font-size: 1.1rem;
 }
 
 .letter p {
@@ -114,14 +108,16 @@ body {
     color: #ff4f70;
 }
 
-.open .flap {
+/* FIXED MOBILE OPEN STATES */
+.openable.open .flap {
     transform: rotateX(180deg);
 }
 
-.open .letter {
+.openable.open .letter {
     bottom: 6%;
 }
 
+/* Small phones */
 @media (max-width: 360px) {
     .letter p {
         font-size: 0.9rem;
@@ -132,10 +128,10 @@ body {
 
 <body>
 
-<div class="container">
+<div class="container openable" onclick="toggleLetter(this)">
     <div class="hint">💌 Tap the letter 💌</div>
 
-    <div class="envelope-wrapper" onclick="toggleLetter()">
+    <div class="envelope-wrapper">
         <div class="envelope">
             <div class="flap"></div>
 
@@ -169,8 +165,8 @@ body {
 </div>
 
 <script>
-function toggleLetter() {
-    document.querySelector('.envelope-wrapper').classList.toggle('open');
+function toggleLetter(el) {
+    el.classList.toggle("open");
 }
 </script>
 
